@@ -1,0 +1,7 @@
+space_booking_skedda.settings:
+  path: '/admin/config/content/space-booking/skedda'
+  defaults:
+    _form: '\Drupal\space_booking_skedda\Form\ImportSettingsForm'
+    _title: 'Skedda import'
+  requirements:
+    _permission: 'administer space booking'

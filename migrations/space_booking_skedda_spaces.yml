@@ -1,0 +1,34 @@
+id: space_booking_skedda_spaces
+label: 'Skedda export: the rooms named in it'
+migration_group: space_booking_skedda
+migration_tags:
+  - 'Space Booking'
+  - Skedda
+
+# The booking export names its rooms but does not describe them, so this
+# creates each one with nothing but a name. Capacity, type, tags and which
+# rooms physically overlap are things only the venue knows: set them afterwards
+# in Structure > Space booking > Spaces.
+source:
+  plugin: skedda_space_names
+  path: 'private://skedda-export.csv'
+  ids: [name]
+  space_column: 'Spaces'
+  fallback_column: 'Assigned space'
+  space_delimiter: ','
+
+process:
+  label: name
+  status:
+    plugin: default_value
+    default_value: true
+  bookable:
+    plugin: default_value
+    default_value: true
+  requires_approval:
+    plugin: default_value
+    default_value: false
+
+destination:
+  plugin: 'entity:space_booking_space'
+  validate: true

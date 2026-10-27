@@ -1,0 +1,21 @@
+{
+    "name": "vectorless/space_booking_skedda",
+    "description": "Import a venue's bookings from a CSV export into Space Booking, as adaptable Migrate API migrations.",
+    "type": "drupal-module",
+    "license": "GPL-2.0-or-later",
+    "keywords": ["drupal", "migrate", "csv", "booking", "skedda"],
+    "require": {
+        "php": ">=8.5",
+        "drupal/core": "^11",
+        "drupal/migrate_source_csv": "^3.8"
+    },
+    "suggest": {
+        "drupal/migrate_tools": "Drush commands to run, roll back and inspect the migrations.",
+        "drupal/migrate_plus": "Needed only if you want holders turned into user accounts, via entity_lookup or entity_generate."
+    },
+    "autoload": {
+        "psr-4": {
+            "Drupal\\space_booking_skedda\\": "src/"
+        }
+    }
+}

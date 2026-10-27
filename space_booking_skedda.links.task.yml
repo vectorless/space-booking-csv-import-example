@@ -1,0 +1,4 @@
+space_booking_skedda.settings:
+  route_name: space_booking_skedda.settings
+  title: 'Skedda import'
+  base_route: space_booking.settings

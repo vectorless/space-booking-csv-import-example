@@ -1,0 +1,25 @@
+space_booking_skedda.settings:
+  type: config_object
+  label: 'Skedda import settings'
+  mapping:
+    path:
+      type: string
+      label: 'Path to the exported file'
+    delimiter:
+      type: string
+      label: 'Column delimiter'
+    space_delimiter:
+      type: string
+      label: 'Separator between room names in one cell'
+    date_formats:
+      type: sequence
+      label: 'Date formats to try, in order'
+      sequence:
+        type: string
+        label: 'Date format'
+    timezone:
+      type: string
+      label: 'Timezone the exported times are written in'
+    default_booking_type:
+      type: string
+      label: 'Booking type for rows with no recognised type'

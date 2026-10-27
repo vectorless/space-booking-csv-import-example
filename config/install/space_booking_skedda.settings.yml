@@ -1,0 +1,6 @@
+path: 'private://skedda-export.csv'
+delimiter: ','
+space_delimiter: ','
+date_formats: {  }
+timezone: ''
+default_booking_type: internal

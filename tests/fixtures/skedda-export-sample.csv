@@ -1,0 +1,8 @@
+Scheduled start,End,Duration (minutes),Spaces count,Type,Title,Price,Payment Status,Holder first name,Holder last name,Holder organization,Holder telephone,Holder email,Holder tags,Created,Gateway charge reference,Spaces,Seen on-site,Assigned space
+2027-01-04 18:00:00,2027-01-04 19:30:00,90,1,Standard,Yoga,0.00,,Rachel,Doyle,,,rachel.doyle@example.com,,2026-12-01 09:15:00,,Studio,,Studio
+2027-01-05 10:00:00,2027-01-05 11:30:00,90,1,Standard,Parent and Baby,0.00,,Aisha,Khan,Little Feet,,aisha@example.com,,2026-12-01 09:20:00,,Garden Room,,Garden Room
+2027-01-05 19:00:00,2027-01-05 20:30:00,90,1,Standard,Choir,0.00,,Tom,Price,Riverside Singers,,tom@example.com,,2026-12-02 11:00:00,,Main Hall,,Main Hall
+2027-01-06 09:00:00,2027-01-06 17:00:00,480,1,Maintenance,Floor resealing,0.00,,,,,,,,2026-12-10 08:00:00,,Main Hall,,Main Hall
+2027-01-07 13:00:00,2027-01-07 15:00:00,120,2,Standard,Lunch Club,0.00,,Joan,Mitchell,,,joan@example.com,,2026-12-03 14:30:00,,"Main Hall, Garden Room",,Main Hall
+2027-01-08 18:00:00,2027-01-08 19:30:00,90,1,Standard,Art Group,0.00,,Sam,Ferguson,,,sam@example.com,,2026-12-04 10:00:00,,Garden Room,,Garden Room
+2027-01-05 19:30:00,2027-01-05 20:00:00,30,1,Standard,Overlaps the choir,0.00,,Pat,Brown,,,pat@example.com,,2026-12-05 10:00:00,,Main Hall,,Main Hall

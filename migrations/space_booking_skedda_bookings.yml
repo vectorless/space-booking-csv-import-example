@@ -1,0 +1,69 @@
+id: space_booking_skedda_bookings
+label: 'Skedda export: the bookings'
+migration_group: space_booking_skedda
+migration_tags:
+  - 'Space Booking'
+  - Skedda
+
+# Copy this file into your own module and edit it: that is the supported way
+# to change the mapping. Every column name below is the one Skedda writes, so
+# an export with custom fields only needs lines adding, not rewriting.
+source:
+  plugin: csv
+  path: 'private://skedda-export.csv'
+  # The export has no booking ID, so identity is the room, the start and the
+  # end. Re-running then updates the same rows instead of duplicating them.
+  ids:
+    - 'Spaces'
+    - 'Scheduled start'
+    - 'End'
+  delimiter: ','
+
+process:
+  start:
+    plugin: skedda_datetime
+    source: 'Scheduled start'
+  end:
+    plugin: skedda_datetime
+    source: 'End'
+  title: 'Title'
+  created:
+    plugin: skedda_datetime
+    source: 'Created'
+  booking_type:
+    plugin: skedda_booking_type
+    source: 'Type'
+  # Imported bookings are already agreed, whatever the room's approval setting
+  # says. Anything else would drop a venue's entire history into a queue.
+  status:
+    plugin: default_value
+    default_value: confirmed
+  spaces:
+    -
+      plugin: skedda_space_list
+      source: 'Spaces'
+    -
+      plugin: skedda_space_lookup
+  # Who held the booking is kept as a note rather than becoming a Drupal user.
+  # Creating accounts for a venue's whole membership is a decision for the
+  # venue, not a side effect of an import: see docs/IMPORTING.md.
+  notes:
+    plugin: concat
+    delimiter: "\n"
+    source:
+      - 'Holder first name'
+      - 'Holder last name'
+      - 'Holder organization'
+      - 'Holder email'
+      - 'Holder telephone'
+
+destination:
+  plugin: 'entity:space_booking_booking'
+  # The booking rules run on every row. A clash, a room that does not exist or
+  # a backwards time range is reported and skipped rather than written, so the
+  # import cannot create a double booking that the UI would have refused.
+  validate: true
+
+migration_dependencies:
+  required:
+    - space_booking_skedda_spaces

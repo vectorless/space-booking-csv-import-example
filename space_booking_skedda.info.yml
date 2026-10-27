@@ -1,0 +1,10 @@
+name: 'Space Booking: Skedda import'
+type: module
+description: 'Import a Skedda booking export (CSV) into Space Booking, as ordinary migrations you can copy and adapt.'
+package: 'Booking'
+core_version_requirement: ^11
+configure: space_booking_skedda.settings
+dependencies:
+  - space_booking:space_booking
+  - drupal:migrate
+  - migrate_source_csv:migrate_source_csv
